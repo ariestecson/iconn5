@@ -21,8 +21,10 @@ class Lecture(models.Model):
     file = models.FileField(upload_to='pdf', blank=True, null=True, default=None, validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     date_modified = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
+
 
 
